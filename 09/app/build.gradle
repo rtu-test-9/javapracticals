@@ -1,0 +1,21 @@
+apply plugin: "application"
+apply plugin: "java"
+mainClassName = "Application.App"
+
+jar {
+    manifest.attributes("Main-Class": mainClassName)
+}
+
+task copyJar(type: Copy) {
+    dependsOn(jar)
+    from 'build/libs'
+    into 'build/docker'
+    from 'src/main/resources'
+    into 'build/docker'
+}
+task buildContainer {
+    dependsOn(copyJar)
+    exec {
+        executable('./script.sh')
+    }
+}

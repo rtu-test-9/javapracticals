@@ -1,0 +1,3 @@
+FROM openjdk
+COPY *.jar /opt/*.jar
+ENTRYPOINT ["java", "-jar", "/opt/*.jar"]
