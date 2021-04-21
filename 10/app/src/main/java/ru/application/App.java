@@ -1,6 +1,6 @@
 package ru.application;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.printers.*;
 
 public class App {
@@ -9,12 +9,12 @@ public class App {
             "applicationContext.xml"
             );
 
-        Printer consolePrinter = context.getBean("consolePrinter", Printer.class);
-        Printer filePrinter = context.getBean("filePrinter", Printer.class);
+        Printer consolePrinter = context.getBean("consolePrinterBean", ConsolePrinter.class);
+        Printer filePrinter = context.getBean("filePrinterBean", FilePrinter.class);
 
         consolePrinter.doPrint("Hello from console printer");
         filePrinter.doPrint("Hello from file printer");
+
         context.close();
     }
 }
- 

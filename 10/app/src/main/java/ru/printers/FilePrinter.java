@@ -2,7 +2,9 @@ package ru.printers;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import org.springframework.stereotype.Component;
 
+@Component("filePrinterBean")
 public class FilePrinter implements Printer {
     @Override
     public void doPrint(String arg0) {
